@@ -1,0 +1,60 @@
+.login_container {
+  width: 100vw;
+  height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.login_content {
+  width: 300px;
+  height: 300px;
+  padding: 30px;
+  top:-40px;
+  position:relative;
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(137, 43, 226, 0.346);
+  border-radius: 5px;
+  border: 1px solid rgba(79, 13, 141, 0.346);
+  flex-direction: column;
+  box-shadow: 4px 6px 15px slateblue;
+}
+h2 {
+  text-align: center;
+}
+.pw {
+  height: 70px;
+}
+.btn {
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 2px 2px 15px rgb(106, 90, 205);
+  border: 1px solid rgb(106, 90, 205);
+  outline: 0;
+}
+input {
+  font-size: 16px;
+  font-weight: 6oopx;
+  width: 100%;
+}
+.btn:hover {
+  cursor: pointer;
+  transition: ease 500ms;
+  box-shadow: 3px 3px 15px rgb(84, 62, 232);
+}
+.CiRead {
+  width: 26px;
+  height: 26px;
+  cursor: pointer;
+  top: -26px;
+  left: 203px;
+  position: relative;
+  color: gray;
+}
+.min {
+  font-size: 14px;
+  color: gray;
+  position: relative;
+  top: -28px;
+}

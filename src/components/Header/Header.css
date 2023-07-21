@@ -4,6 +4,12 @@
   width:100%;
   background-color: rgba(226, 33, 33, 0.536);
 }
+.gi_pizza{
+  width:38px;
+  height:38px;
+  position:relative;
+  top:2px;
+}
 .header_content{
   display:flex;
   flex-direction: row;
@@ -12,12 +18,12 @@
   max-width: 1000px;
   width:100%;
   height:50px;
-  border: 1px solid green;
-  
   margin: 0px 20px;
 }
-.menu_container{
-  
+.hamburguer_menu{
+  display:none;
+  width: 30px;
+  height: 30px;
 }
 .menu_content{
   display:flex;
@@ -29,8 +35,14 @@
   font-weight: 600;
   color: rgb(32, 13, 13);
 }
-@media (max-width:320px){
+@media (max-width:600px){
   .menu_content{
     display:none;
   }
+  .hamburguer_menu{
+    display:flex;
+    width: 30px;
+    height: 30px;
+  }
+  
 }
