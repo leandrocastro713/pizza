@@ -6,11 +6,15 @@
   justify-content: space-around;
   align-items: center;
 }
+p{
+  left: 4px;
+  position: relative;
+}
 .login_content {
   width: 300px;
   height: 300px;
   padding: 30px;
-  top:-40px;
+  top:-10px;
   position:relative;
   display: flex;
   justify-content: space-around;
@@ -27,34 +31,39 @@ h2 {
   height: 70px;
 }
 .btn {
+  transition: ease-in all 1000ms;
   padding: 10px;
   border-radius: 6px;
-  box-shadow: 2px 2px 15px rgb(106, 90, 205);
+  box-shadow: 2px 2px 5px rgb(106, 90, 205);
   border: 1px solid rgb(106, 90, 205);
   outline: 0;
+}
+.btn:hover {
+  cursor: pointer;
+  transition: ease 500ms;
+  box-shadow: 3px 3px 15px rgb(200, 147, 221);
 }
 input {
   font-size: 16px;
   font-weight: 6oopx;
   width: 100%;
-}
-.btn:hover {
-  cursor: pointer;
-  transition: ease 500ms;
-  box-shadow: 3px 3px 15px rgb(84, 62, 232);
+  border-radius: 6px;
+  border:2px solid rgba(165, 123, 204, 0.8);
+  padding: 4px 6px;
 }
 .CiRead {
   width: 26px;
   height: 26px;
   cursor: pointer;
-  top: -26px;
-  left: 203px;
+  top: -30px;
+  left: 207px;
   position: relative;
   color: gray;
 }
 .min {
   font-size: 14px;
-  color: gray;
+  color: rgb(53, 21, 62);
   position: relative;
-  top: -28px;
+  top: -30px;
+  left: 4px;
 }
