@@ -2,14 +2,27 @@ import "./Login.css";
 import { useEffect, useState, useRef } from "react";
 import { CiRead } from "react-icons/ci";
 
-export default function Login({ user_logged, setuser_logged, set_show_client_container }) {
+export default function Login({ user_logged, setuser_logged, set_show_cliente_container }) {
   const [user, set_user] = useState("");
   const [pw_text, set_pw_text] = useState("");
-  const user_ref = useRef(null);
   const [see_pw, set_see_pw] = useState(false);
   const [ci_color, set_ci_color] = useState("gray");
   const [btn_ok_enabled, setbtn_ok_enabled] = useState(false);
+
   const [show_login_container, set_show_login_container] = useState(true)
+  
+  const user_ref = useRef(null);
+  
+  useEffect(() => {
+    if (user != "" && pw_text != "") {
+      setbtn_ok_enabled(true);
+    } else {
+      setbtn_ok_enabled(false);
+    }
+    console.log(user);
+    console.log(pw_text);
+  }, [user, pw_text]);
+
 
   function handle_see_pw() {
     console.log(see_pw, ci_color);
@@ -21,16 +34,6 @@ export default function Login({ user_logged, setuser_logged, set_show_client_con
       set_see_pw(true);
     }
   }
-
-  useEffect(() => {
-    if (user != "" && pw_text != "") {
-      setbtn_ok_enabled(true);
-    } else {
-      setbtn_ok_enabled(false);
-    }
-    console.log(user);
-    console.log(pw_text);
-  }, [user, pw_text]);
 
   function handle_user(e) {
     set_user(e.target.value);
@@ -48,7 +51,8 @@ export default function Login({ user_logged, setuser_logged, set_show_client_con
       if (user === "admin" && pw_text === "123") {
         setuser_logged(user);
         set_show_login_container(false)
-        set_show_client_container(true)
+        set_show_cliente_container(true)
+        console.log ('Bem vindo, usuário ' + user + '.')
       }
     }
   }
@@ -56,7 +60,9 @@ export default function Login({ user_logged, setuser_logged, set_show_client_con
   return (
     <>
       {show_login_container && 
+
         <div className="login_container">
+
           <form className="login_content" action="">
             <h2>Login</h2>
             <div className="user">
@@ -69,6 +75,7 @@ export default function Login({ user_logged, setuser_logged, set_show_client_con
                 id="user"
               />
             </div>
+
             <div className="pw">
               <p>Senha:</p>
               <input
@@ -84,6 +91,7 @@ export default function Login({ user_logged, setuser_logged, set_show_client_con
               />
               {see_pw ? <p className="min">{pw_text}</p> : <p> </p>}
             </div>
+
             <input
               style={{ opacity: btn_ok_enabled ? "1" : ".3" }}
               className="btn"
@@ -92,6 +100,7 @@ export default function Login({ user_logged, setuser_logged, set_show_client_con
               onClick={() => handle_btn_click()}
             />
           </form>
+
         </div>
       }
     </>

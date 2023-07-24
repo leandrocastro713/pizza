@@ -5,10 +5,18 @@
   background-color: rgba(226, 33, 33, 0.536);
 }
 .gi_pizza{
-  width:38px;
+  width:36px;
   height:38px;
   position:relative;
-  top:2px;
+  top:0px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo p{
+  font-family: 'Kaushan Script', cursive;
+  font-size: 20px;
 }
 .header_content{
   display:flex;

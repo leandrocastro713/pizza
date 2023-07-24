@@ -2,13 +2,14 @@ import "./Header.css";
 import { GiFullPizza } from "react-icons/gi";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-export default function Header() {
+export default function Header({user}) {
   return (
     <>
       <section className="header_container">
         <div className="header_content">
           <div className="logo">
             <GiFullPizza className="gi_pizza"/>
+            <p>Pizzaria Mama no meu</p> 
           </div>
           <div className="menu_container">
             <ul className="menu_content">
