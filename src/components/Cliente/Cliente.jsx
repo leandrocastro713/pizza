@@ -110,11 +110,11 @@ export default function Cliente({ user_logged }) {
             </div>
 
             <div
-              className="pizza_tamanho pizza_pequena"
+              className="pizza_tamanho pizza_combo"
               onClick={() => inclui_item(['2 pizzas grande + refrigerange 2 litros', 90.0])}
             >
               <div className="pizza_desc">
-                <p>2 pizzas grande + refrigerante 2 litros</p>
+                <p className="item_desc">2 pizzas grande + refrigerante 2 litros</p>
                 <p className="obs">8 fatias 35cm</p>
               </div>
               <p className="preco">R$ 90,00</p>

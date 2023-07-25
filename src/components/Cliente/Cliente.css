@@ -142,11 +142,24 @@ h2 {
     font-weight: 400;
   }
   .preco{
-    padding: 5px;
+    padding: 3px;
+    width:160px;
+  }
+  .pizzas_container h3{
+    margin-left: 13px;
   }
   .itens_pedido{
     width:90vw;
     left:5vw; 
+  }
+  .item_desc{
+    max-width: 80%;
+  }
+  .pizza_desc{
+    width:80%;
+  }
+  .pizza_tamanho p{
+    margin-left: 10px;
   }
    
 }
