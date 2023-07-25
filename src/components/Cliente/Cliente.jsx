@@ -1,50 +1,68 @@
 import "./Cliente.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 // import React from "react";
 
 export default function Cliente({ user_logged }) {
-  const [total_pedido, set_total_pedido] = useState(0.0);
-  const [show_itens, set_show_itens] = useState(false)
-  const [itens_pedido, set_itens_pedido] = useState([])
-  
+  const [total_pedido, set_total_pedido] = useState(0);
+  const [show_itens, set_show_itens] = useState(false);
+  const [itens_pedido, set_itens_pedido] = useState([]);
+
   function inclui_item([item, valor]) {
-    let x = total_pedido + 62;
-    set_total_pedido(x);
     console.log(total_pedido);
-    set_itens_pedido(arr => [...arr, {item, valor}])
-    console.log(item, valor)
-    console.log(itens_pedido)
-    set_total_pedido()
+    set_itens_pedido((arr) => [...arr, { item, valor }]);
+    console.log(item, valor);
+    console.log(itens_pedido);
+    set_total_pedido(total_pedido + valor);
   }
 
-  function f_show_itens(){
-    set_show_itens(!show_itens)
-    console.log(show_itens)
+  function excluir_item(valor, index) {
+    console.log(valor, index)
+    itens_pedido.splice(index,1)
+    set_total_pedido(total_pedido - valor)
   }
+
+  function f_show_itens() {
+    set_show_itens(!show_itens);
+    console.log(show_itens);
+  }
+
+  useEffect(()=>{
+    itens_pedido.map((item) => (
+      console.log(total_pedido, item.valor)
+      // set_total_pedido(total_pedido + item.valor)
+    ))}
+  ,[itens_pedido])   
 
   return (
     <>
       <div className="cliente_container">
-        
-        <div className="itens_pedido" 
-          style = {{opacity: show_itens ? .95 : 0 , left: show_itens ? '10vw' : '100vw'}}>
-            <h2>Itens do pedido</h2>
-            {itens_pedido.map((item)=>
-              <div className="lista">
-                <p>{item.item}</p>
-                <p>{item.valor}</p>
-                <p id="excluir">Ecluir</p>
-              </div>)
-            }
+        <div
+          className="itens_pedido"
+          style={{
+            opacity: show_itens ? 0.95 : 0,
+            left: show_itens ? "10vw" : "100vw",
+          }}
+        >
+          <h2>Itens do pedido</h2>
+          {itens_pedido.map( (item , index ) => (
+            <div className="lista">
+              <p>{item.item}</p>
+              <p className="preco">{item.valor.toFixed(2)}</p>
+              <p id="excluir" onClick={()=>excluir_item(item.valor, index)}>Ecluir</p>
+            </div>
+          ))}
         </div>
-      
+
         <h2>Olá, {user_logged} !</h2>
 
         <div className="pizzas_container">
           <h3>Pizzas</h3>
 
           <div className="pizzas_tabela">
-            <div className="pizza_tamanho pizza_super_familia">
+            <div
+              className="pizza_tamanho pizza_super_familia"
+              onClick={() => inclui_item(["Pizza Super Familia", 68.0])}
+            >
               <div className="pizza_desc">
                 <p>Super Familia</p>
                 <p className="obs">16 fatias 45cm</p>
@@ -54,7 +72,7 @@ export default function Cliente({ user_logged }) {
 
             <div
               className="pizza_tamanho pizza_familia"
-              onClick={() => inclui_item(['Pizza Familia',62])}
+              onClick={() => inclui_item(["Pizza Familia", 62.0])}
             >
               <div className="pizza_desc">
                 <p>Familia</p>
@@ -63,7 +81,10 @@ export default function Cliente({ user_logged }) {
               <p className="preco">R$ 62,00</p>
             </div>
 
-            <div className="pizza_tamanho pizza_grande">
+            <div
+              className="pizza_tamanho pizza_grande"
+              onClick={() => inclui_item(["Pizza Grande", 55.0])}
+            >
               <div className="pizza_desc">
                 <p>Grande</p>
                 <p className="obs">8 fatias 35cm</p>
@@ -71,15 +92,21 @@ export default function Cliente({ user_logged }) {
               <p className="preco">R$ 55,00</p>
             </div>
 
-            <div className="pizza_tamanho pizza_media">
+            <div
+              className="pizza_tamanho pizza_media"
+              onClick={() => inclui_item(["Pizza Média", 45.8])}
+            >
               <div className="pizza_desc">
                 <p>Media</p>
                 <p className="obs">6 fatias 30cm</p>
               </div>
-              <p className="preco">R$ 45,00</p>
+              <p className="preco">R$ 45,80</p>
             </div>
 
-            <div className="pizza_tamanho pizza_pequena">
+            <div
+              className="pizza_tamanho pizza_pequena"
+              onClick={() => inclui_item(["Pizza Pequena", 35.9])}
+            >
               <div className="pizza_desc">
                 <p>Pequena</p>
                 <p className="obs">4 fatias 25cm</p>
@@ -87,7 +114,10 @@ export default function Cliente({ user_logged }) {
               <p className="preco">R$ 35,90</p>
             </div>
 
-            <div className="pizza_tamanho pizza_pequena">
+            <div
+              className="pizza_tamanho pizza_pequena"
+              onClick={() => inclui_item(['2 pizzas grande + refrigerange 2 litros', 90.0])}
+            >
               <div className="pizza_desc">
                 <p>2 pizzas grande + refrigerante 2 litros</p>
                 <p className="obs">8 fatias 35cm</p>
@@ -97,10 +127,10 @@ export default function Cliente({ user_logged }) {
           </div>
         </div>
 
-        <footer className="footer" onClick={()=>f_show_itens()}>
+        <footer className="footer" onClick={() => f_show_itens()}>
           <div className="footer_content">
             <p className="footer_legenda">Total do pedido</p>
-            <p className="footer_total">R$ 0.00</p>
+            <p className="footer_total">{total_pedido.toFixed(2)}</p>
           </div>
         </footer>
       </div>

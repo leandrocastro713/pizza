@@ -39,14 +39,16 @@ h2 {
   border: 1px solid gray;
   border-radius: 5px;
   box-shadow: 4px 4px 6px gray;
-  bottom:60px;
-  height: 80vh;
+  bottom:54px;
   display:flex;
   flex-direction: column;
   left:100vw;
+  max-height: 600px;
+  min-height: 400px;
   opacity:0;
+  overflow-y: scroll;
   position:fixed;
-  padding:5px;
+  padding:5px 5px 30px;
   transition: all ease 500ms;
   width:80vw;
   z-index: 10;
@@ -85,11 +87,12 @@ h2 {
 .preco{
   display:flex;
   position:relative;
-  justify-content: right;
+  justify-content: right!important;
   align-content: center;
-  width:150px;
+  /* width:150px; */
   height:100%;
   width: 125px;
+  margin-right: 8px;
 }
 .pizzas_container h3 {
   margin: 10px 20px;
@@ -110,4 +113,14 @@ h2 {
   margin: 0px 20px 5px;
   position:relative;
 
+}
+@media (max-width: 340px){
+  .lista p{
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .preco{
+    padding: 5px;
+  }
+   
 }
