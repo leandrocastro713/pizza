@@ -9,7 +9,7 @@ export default function Header({user}) {
         <div className="header_content">
           <div className="logo">
             <GiFullPizza className="gi_pizza"/>
-            <p>Pizzaria Mama no meu</p> 
+            <p>Pizzaria do Papai</p> 
           </div>
           <div className="menu_container">
             <ul className="menu_content">
