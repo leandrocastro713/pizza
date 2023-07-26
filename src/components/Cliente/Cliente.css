@@ -1,99 +1,118 @@
-.cliente_container{
+.cliente_container {
   max-width: 720px;
-  margin:0 auto;
+  margin: 0 auto;
   overflow-x: hidden;
+  padding-bottom: 1.8rem;
+}
+.pizzas_container{
+  padding-bottom: 1.5rem;
 }
 .footer {
-  display:flex;
-  position:fixed;
+  display: flex;
+  position: fixed;
   justify-content: center;
   align-items: center;
   bottom: 0px;
   height: 50px;
-  width:100vw;
-  left:0;
+  width: 100vw;
+  left: 0;
   background-color: rgba(37, 108, 112);
 }
-.footer_content{
+.footer_content {
   max-width: 1000px;
-  width:100%;
-  display:flex;
+  width: 100%;
+  display: flex;
   justify-content: space-evenly;
   flex-direction: row;
 }
-.footer_legenda{
+.footer_legenda {
   font-size: 18px;
   font-weight: 600;
   align-self: center;
+  transition: ease all 500ms;
 }
-.footer_total{
+.footer_total {
   font-size: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 600;
+  transition: ease all 500ms;
 }
-.note_icon{
+.note_icon {
   animation: none;
-  position:relative;
-  top:2px;
+  position: relative;
+  top: 2px;
   width: 25px;
   height: 25px;
 }
 @keyframes blink {
-  0%{color:white;}
-  50%{color:aqua;}
-  80%{color:blue;}
+  0% {
+    color: white;
+    letter-spacing: 1px;  }
+  50% {
+    color: aqua;
+  }
+  80% {
+    color: rgb(182, 197, 101);
+    letter-spacing: 1.1px;
+  }
 }
 h2 {
   margin: 1em;
   position: relative;
 }
-.itens_pedido{
+.itens_pedido {
   background-color: rgb(179, 206, 228);
   border: 1px solid gray;
   border-radius: 5px;
   box-shadow: 4px 4px 6px gray;
-  bottom:54px;
-  display:flex;
+  bottom: 54px;
+  display: flex;
   flex-direction: column;
-  left:100vw;
+  left: 5vw;
   max-height: 600px;
-  min-height: 400px;
-  opacity:0;
+  min-height: 0px;
+  height:0px;
+  opacity: 0;
   overflow-y: scroll;
-  position:fixed;
-  padding:5px 5px 30px;
+  position: fixed;
+  padding: 5px 5px 30px;
   transition: all ease 500ms;
-  width:80vw;
+  width: 80vw;
   z-index: 10;
 }
 .itens_pedido h2 {
   font-size: 24px;
   font-weight: 600;
 }
-.lista{
-  display:flex;
+.lista {
+  border-bottom: 1px dotted gray;
+  display: flex;
   align-items: center;
   margin: 2px 10px;
   justify-content: space-between;
 }
-.lista p{
+.lista:nth-last-child(1) {
+  border-bottom: none;
+}
+.lista p {
   font-size: 20px;
   font-weight: 400;
 }
-.lista_desc{
-  width:60%;
+.lista_desc {
+  width: 100%;
 }
-#excluir{
-  width:65px;
-  font-weight: 400;
-  font-size: 15px;
-  padding:10px;
+#excluir {
+  background-color: rgba(232, 107, 107);
+  border: 1px solid rgb(247, 238, 238);
   border-radius: 100px;
   color: antiquewhite;
-  border: 1px solid rgb(247, 238, 238);
-  background-color: rgba(232, 107, 107);
+  cursor:pointer;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 10px;
+  width: 65px;
 }
 .pizza_tamanho {
   display: flex;
@@ -103,13 +122,13 @@ h2 {
   max-width: 720px;
   width: 100%;
 }
-.preco{
-  display:flex;
-  position:relative;
-  justify-content: right!important;
+.preco {
+  display: flex;
+  position: relative;
+  justify-content: right !important;
   align-content: center;
   /* width:150px; */
-  height:100%;
+  height: 100%;
   width: 125px;
   margin-right: 8px;
 }
@@ -124,42 +143,44 @@ h2 {
   font-weight: 600;
 }
 .pizza_tamanho:hover {
-  background-color: rgb(153, 206, 153);
+  background-color: rgb(176, 199, 176);
+  cursor:pointer;
 }
-.pizza_desc p{
+.pizza_desc p {
   margin-bottom: 0px;
 }
-.pizza_desc .obs{
+.pizza_desc .obs {
   font-size: 14px;
   color: brown;
   margin: 0px 20px 5px;
-  position:relative;
-
+  position: relative;
 }
-@media (max-width: 390px){
-  .lista p{
+@media (max-width: 390px) {
+  .lista p {
     font-size: 18px;
     font-weight: 400;
   }
-  .preco{
+  .preco {
     padding: 3px;
-    width:160px;
+    width: 105px;
   }
-  .pizzas_container h3{
+  .pizzas_container h3 {
     margin-left: 13px;
   }
-  .itens_pedido{
-    width:90vw;
-    left:5vw; 
+  .itens_pedido {
+    width: 90vw;
+    left: 5vw;
   }
-  .item_desc{
+  .item_desc {
     max-width: 80%;
   }
-  .pizza_desc{
-    width:80%;
+  .pizza_desc {
+    width: 80%;
   }
-  .pizza_tamanho p{
+  .pizza_desc .obs {
     margin-left: 10px;
   }
-   
+  .pizza_tamanho p {
+    margin-left: 10px;
+  }
 }
