@@ -1,10 +1,11 @@
 import "./Cliente.css";
 import { useEffect, useState } from "react";
-import { SlNote } from "react-icons/sl"; // import React from "react";
+import { SlNote } from "react-icons/sl"; 
 import Produto from "./Produtos/Produtos";
 import ProdutoB from "./Produtos/ProdutoB";
 
 export default function Cliente({ user_logged }) {
+
   const [total_pedido, set_total_pedido] = useState(0);
   const [show_itens, set_show_itens] = useState(false);
   const [itens_pedido, set_itens_pedido] = useState([]);
@@ -35,10 +36,10 @@ export default function Cliente({ user_logged }) {
     <>
       <div className="cliente_container">
         {/* ------------- ITENS DE PEDIDO ---------------  */}
-
         <div
           className="itens_pedido"
           style={{
+            zIndex: show_itens ? 10 : -10,
             opacity: show_itens ? 0.95 : 0,
             left: show_itens
               ? window.screen.width > 400

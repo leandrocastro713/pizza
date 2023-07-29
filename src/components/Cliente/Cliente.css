@@ -70,17 +70,17 @@ h2 {
   bottom: 54px;
   display: flex;
   flex-direction: column;
-  left: 5vw;
+  left: 10vw;
   max-height: 600px;
   min-height: 0px;
-  height:0px;
+  height:2px;
   opacity: 0;
   overflow-y: scroll;
   position: fixed;
   padding: 5px 5px 30px;
   transition: all ease 500ms;
   width: 80vw;
-  z-index: 10;
+  z-index: -10;
 }
 .itens_pedido h2 {
   font-size: 24px;
@@ -99,6 +99,7 @@ h2 {
 .lista p {
   font-size: 20px;
   font-weight: 400;
+  align-items: center;
 }
 .lista_desc {
   width: 100%;
